@@ -1,0 +1,25 @@
+{% macro linkTags(links) %}
+    <div class="flex">
+        {% if links.podcast %}
+            <span class="text-sm rounded-lg bg-green-100 px-2 mr-2 w-8 h-8 items-center">
+                <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/podcast.svg"/>
+            </span>
+            {%endif%}
+            {% if links.youtube %}
+                <span class="text-sm rounded-lg bg-red-100 px-2 mr-2 w-8 h-8 items-center">
+                    <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/youtube.svg"/>
+                </span>
+                {%endif%}
+                {% if links.instagram %}
+                    <span class="text-sm rounded-lg bg-purple-100 px-2 mr-2 w-8 h-8 items-center">
+                        <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/instagram.svg"/>
+                    </span>
+                    {%endif%}
+                    {% if links.tiktok %}
+                        <span class="text-sm rounded-lg bg-blue-100 px-2 mr-2 w-8 h-8 items-center">
+                            <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/tiktok.svg"/>
+                        </span>
+                        {%endif%}
+
+                    </div>
+                    {%endmacro%}

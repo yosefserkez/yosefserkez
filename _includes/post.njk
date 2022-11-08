@@ -2,11 +2,10 @@
 
 {% set previousPost = collections.pct22 | getPreviousCollectionItem(page) %}
 {% set nextPost = collections.pct22 | getNextCollectionItem(page) %}
-{%set title = date | date ("dddd, MMMM D, YYYY")%}
 
 {% block content %}
     <div class="m-auto py-2">
-        <div class="m-auto px-4 border-l-2 pr-8">
+        <div class="markdown m-auto px-4 border-l-2 pr-8">
             {{ content | safe }}
         </div>
         <div class="my-4 font-thin">

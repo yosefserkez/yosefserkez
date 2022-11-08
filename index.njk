@@ -1,7 +1,34 @@
 {% extends "_includes/default.njk" %}
 
-{% block title %}Yosef Serkez{% endblock %}
+{%block title%}Yosef Serkez{%endblock%}
 
-{% block content %}
-  <a href="/pct22">PCT</a>
-{% endblock %}
+  {% block content %}
+    <p class="text-gray-400 text-sm" aria="About">
+
+      <div class="mx-auto flex justify-center mt-4 " alt="Yosef Serkez Profile Photo." >
+        <div class="color-shift h-36 md:h-96 w-24 md:w-72 bg-contain bg-no-repeat bg-[url('/assets/photos/yosef-2.jpg')]"></div>
+        <div class="color-shift h-36 md:h-96 w-24 md:w-72 bg-contain bg-no-repeat bg-[url('/assets/photos/yosef-3.jpg')]"></div>
+        <div class="color-shift h-36 md:h-96 w-24 md:w-72 bg-contain bg-no-repeat bg-[url('/assets/photos/yosef-1.jpg')]"></div>
+
+      </div>
+      <div class="">
+
+        <ul class="flex justify-center grid-flow-col grid-cols-2 md:grid-cols-4 mt-2 text-center ">
+
+          <a href="/pct22" class="p-2 rounded text-md border-t mx-2 ">
+            <div class="flex flex-col h-full hover:scale-105 transition-transform">
+              <div class="ftext-gray-800 tracking-widest">Pacific Crest Trail</div>
+              <img src="/assets/pct.svg" class="w-36 h-36 md:pt-4 md:w-full md:h-full m-auto" alt="Pacific Crest Trail center line."/>
+            </div>
+          </a>
+
+          <a href="/btse" class="p-2 rounded text-md border-t mx-2">
+            <div class="flex flex-col h-full hover:scale-105 transition-transform">
+              <div class="text-gray-800 tracking-widest">Before The Sun Explodes</div>
+              <div class="border border-orange-400  w-24 h-24 m-auto rounded-full"></div>
+            </div>
+          </a>
+
+        </ul>
+      </div>
+    {% endblock %}

@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-p {
+.markdown p {
   margin-bottom: 1rem;
 }
 .sun-container {
-  width: 500px;
+  /* width: 500px; */
   height: 350px;
   display: grid;
   justify-content: center;
@@ -25,6 +25,23 @@ p {
   transform: scale(1.5);
 }
 
+.color-shift {
+  animation: colorShift 3s linear infinite;
+  animation-direction: alternate;
+}
+.color-shift:nth-of-type(1) {
+  animation-duration: 3s;
+}
+.color-shift:nth-of-type(2) {
+  animation-duration: 5s;
+}
+.color-shift:nth-of-type(3) {
+  animation-duration: 6s;
+}
+.color-shift:nth-of-type(4) {
+  animation-duration: 4s;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -40,5 +57,20 @@ p {
   }
   to {
     transform: rotate(360deg) translate(140px) scale(0.7);
+  }
+}
+
+@keyframes colorShift {
+  0% {
+    filter: grayscale(100);
+  }
+  25% {
+    filter: grayscale(70);
+  }
+  50% {
+    filter: grayscale(40);
+  }
+  100% {
+    filter: grayscale(0);
   }
 }
