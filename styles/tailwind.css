@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+p {
+  margin-bottom: 1rem;
+}
+.sun-container {
+  width: 500px;
+  height: 350px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.sun-container > * {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.sun-ray {
+  animation: spinAround 25s linear infinite;
+}
+.sun-ray:hover {
+  transform: scale(1.5);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg) translate(140px) scale(0.7);
+  }
+  to {
+    transform: rotate(360deg) translate(140px) scale(0.7);
+  }
+}

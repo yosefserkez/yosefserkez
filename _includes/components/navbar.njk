@@ -1,0 +1,13 @@
+<nav class="flex border-b w-auto text-xl py-1 mb-1">
+    <a href="/" class="text-xl font-bold items-end align-bottom justify-end hover:underline underline-offset-8">
+    Yosef Serkez
+    </a>
+    {% set crumbs = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, {allowMissing: true}) %}
+    {% for crumb in crumbs %}
+        <span class="text-gray-900 font-extralight mx-2">|</span>
+        <a class="text-gray-900 hover:underline underline-offset-8 font-light" href="{{ crumb.url | url }}">{{ crumb.title }}</a>
+    {% endfor %}
+
+    {% set navPages = collections.all | eleventyNavigation %}
+
+</nav>

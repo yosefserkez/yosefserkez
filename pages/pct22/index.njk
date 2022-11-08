@@ -1,0 +1,34 @@
+---
+permalink: "{{page.fileSlug}}/index.html"
+eleventyNavigation:
+  key: pct22
+  title: Pacific Crest Trail
+---
+{% extends "_includes/default.njk" %}
+
+{%set title="Pacific Crest Trail"%}
+
+{% block content %}
+  <div class="grid justify-center w-full h-96">
+    <img src="/assets/pct.svg" class="h-full w-full" alt="Pacific Crest Trail center line."/>
+  </div>
+  <div class="">
+    <p class="text-gray-400 text-sm" aria="About">
+        In May 2022 I embarked on a journey across America, by foot. Over the next 4 months I hike over 2000 miles through the Sierra Nevada mountain range, from Mexico to Canada. Along the way I found ... 
+      </p>
+    <div class="">
+      <h2 class="font-bold text-lg">Logs</h2>
+      <p class="text-gray-700">{{collections.pct22.length}} log entries written along the way.</p>
+    </div>
+    <ol class="grid gap-2 grid-flow-col auto-cols-max	overflow-scroll ">
+      {%- for post in collections.pct22 | reverse -%}
+        <a href={{post.url}} class="p-2 rounded border w-60 text-md hover:border-black">
+          <div class="flex flex-col ">
+            <div class="text-xs text-gray-600">{{post.date | date ("dddd, MMMM D, YYYY")}}</div>
+            <div class="">{{post.templateContent |  truncate() | safe }}</div>
+          </div>
+        </a>
+      {%- endfor -%}
+    </ol>
+  </div>
+{% endblock %}

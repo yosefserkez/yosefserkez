@@ -1,0 +1,21 @@
+{% extends "_includes/default.njk" %}
+
+{% set previousPost = collections.pct22 | getPreviousCollectionItem(page) %}
+{% set nextPost = collections.pct22 | getNextCollectionItem(page) %}
+{%set title = date | date ("dddd, MMMM D, YYYY")%}
+
+{% block content %}
+    <div class="m-auto py-2">
+        <div class="m-auto px-4 border-l-2 pr-8">
+            {{ content | safe }}
+        </div>
+        <div class="my-4 font-thin">
+            {% if previousPost %}
+                <a href="{{ previousPost.url }}" class="text-gray-500 hover:text-gray-900 mr-4">Previous Post</a>
+            {% endif %}
+            {% if nextPost %}
+                <a href="{{ nextPost.url }}" class="text-gray-500 hover:text-gray-900">Next Post</a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
