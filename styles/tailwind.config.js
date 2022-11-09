@@ -1,12 +1,15 @@
 module.exports = {
-  content: ['_site/**/*.html'],
+  content: ["_site/**/*.html"],
   safelist: [],
   theme: {
     extend: {
+      saturate: {
+        80: ".80",
+      },
       colors: {
-        change: 'black',
+        change: "black",
       },
     },
   },
   plugins: [],
-}
+};
