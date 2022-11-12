@@ -1,89 +1,127 @@
 ---
 permalink: "{{page.fileSlug}}/index.html"
+subtitle: "Can adventure teach us something about life?"
 eleventyNavigation:
   key: btse
   title: Before The Sun Explodes
+  parent: index
 ---
 {% extends "_includes/default.njk" %}
-{% from 'components/linkTags.njk' import linkTags %}
-{%set title="Before The Sun Explodes"%}
 
 {% block content %}
-  <p class="text-gray-400 text-sm" aria="About">
-      Can adventure teach us something about lifes biggest question? Brb, I'll go find out.
-    </p>
-  <div class="sun-container mx-auto my-16">
-    <div
-        class="border-2 border-orange-400 w-24 h-24 m-auto rounded-full shadow-md shadow-orange-200"
+  <p class="text-gray-400 text-sm" aria="About">{{subtitle}}</p>
+  <div class="mx-auto my-8 p-8 flex justify-center">
+    <div class="sun-container mx-auto my-16">
+      <div
+        class="border border-orange-400 w-24 h-24 m-auto rounded-full shadow-md shadow-orange-200"
       ></div>
-    <div class="sun-ray" style="animation-delay: -1.5s">
-      <p>Where did I come from?</p>
+      <div class="sun-ray" style="animation-delay: -1.5s">
+        <p>
+          -----
+          -----
+          ---</p>
     </div>
     <div class="sun-ray" style="animation-delay: -3s">
-      <p>Who am I?</p>
-    </div>
-    <div class="sun-ray" style="animation-delay: -4.5s">
-      <p>Why am I here?</p>
+      <p>---
+          -----
+          -----
+        </p>
+      </div>
+      <div class="sun-ray" style="animation-delay: -4.5s">
+        <p>
+          -----
+          -----
+          ---</p>
     </div>
     <div class="sun-ray" style="animation-delay: -6s">
-      <p>How should I live?</p>
-    </div>
-    <div class="sun-ray" style="animation-delay: -7.5s">
-      <p>Where am I going?</p>
+      <p>---
+          -----
+          -----
+        </p>
+      </div>
+      <div class="sun-ray" style="animation-delay: -7.5s">
+        <p>
+          -----
+          -----
+          ---</p>
     </div>
     <div class="sun-ray" style="animation-delay: -9s">
-      <p>What is love?</p>
-    </div>
-    <div class="sun-ray" style="animation-delay: -10.5s">
-      <p>God?</p>
+      <p>---
+          -----
+          -----
+        </p>
+      </div>
+      <div class="sun-ray" style="animation-delay: -10.5s">
+        <p>
+          -----
+          -----
+          ---</p>
     </div>
     <div class="sun-ray" style="animation-delay: -12s">
-      <p>What is my purpose?</p>
-    </div>
-    <div class="sun-ray" style="animation-delay: -13.5s">
-      <p>What is consciousness?</p>
+      <p>---
+          -----
+          -----
+        </p>
+      </div>
+      <div class="sun-ray" style="animation-delay: -13.5s">
+        <p>
+          -----
+          -----
+          ---</p>
     </div>
     <div class="sun-ray" style="animation-delay: -15s">
-      <p>What is my ego?</p>
-    </div>
-    <div class="sun-ray" style="animation-delay: -16.5s">
-      <p>What is spirituality?</p>
+      <p>---
+          -----
+          -----
+        </p>
+      </div>
+      <div class="sun-ray" style="animation-delay: -16.5s">
+        <p>
+          -----
+          -----
+          ---</p>
     </div>
     <div class="sun-ray" style="animation-delay: -18s">
-      <p>Why all the pain?</p>
-    </div>
-    <div class="sun-ray" style="animation-delay: -19.5s">
-      <p>Is the confusion natural?</p>
+      <p>---
+          -----
+          -----
+        </p>
+      </div>
+      <div class="sun-ray" style="animation-delay: -19.5s">
+        <p>
+          -----
+          -----
+          ---</p>
     </div>
     <div class="sun-ray" style="animation-delay: -21s">
-      <p>Is reality...real?</p>
-    </div>
-    <div class="sun-ray" style="animation-delay: -22.5s">
-      <p>...xxx...xxx</p>
+      <p>---
+          -----
+          -----
+        </p>
+      </div>
+      <div class="sun-ray" style="animation-delay: -22.5s">
+        <p>
+          -----
+          -----
+          ---</p>
     </div>
     <div class="sun-ray" style="animation-delay: -24s">
-      <p>Remember that time.</p>
+      <p>---
+          -----
+          -----
+        </p>
+      </div>
+      <div class="sun-ray" style="animation-delay: -25.3s">
+        <p>
+          ---
+          -----
+          -----
+        </p>
+      </div>
     </div>
   </div>
-  <div class="">
-    <div class="flex">
-      <h2>Posts</h2>
-      <span class="mx-2 text-gray-400 border-r"></span>
-      <span class="text-gray-400 font-light">{{collections.btse.length}}</span>
-    </div>
-    <ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
-      {%- for post in collections.btse | reverse -%}
-        <a href={{post.url}} class="p-2 rounded border w-60 text-md hover:border-black">
-          <div class="flex flex-col ">
-            <div class="text-xs text-gray-600">{{post.date | date ("dddd, MMMM D, YYYY")}}</div>
 
-            <h1 class="font-bold text-xl">{{post.data.title}}</h1>
-            {{linkTags(post.data.links)}}
-            <div class="">{{post.templateContent |  truncate() | safe }}</div>
-          </div>
-        </a>
-      {%- endfor -%}
-    </ol>
-  </div>
+  {# {%include "_includes/components/postCollection.njk"%}
+  {%include "_includes/components/pictureCollection.njk"%} #}
 
 {% endblock %}

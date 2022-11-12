@@ -1,0 +1,17 @@
+{%macro contentNav(posts, post)%}
+    {% set previousPost = posts | getPreviousCollectionItem(post) %}
+    {% set nextPost = posts | getNextCollectionItem(post) %}
+    <div class="my-4 w-auto font-thin flex justify-center mx-auto text-center font-sans font-normal">
+        {% if previousPost %}
+            <a href="{{ previousPost.url }}" class="text-gray-500 hover:scale-95 hover:text-gray-700 transition-all mx-2">Previous
+                <div class="shadow-md rounded p-2 text-sm">{{previousPost.data.title}}</div>
+            </a>
+
+        {% endif %}
+        {% if nextPost %}
+            <a href="{{ nextPost.url }}" class="text-gray-500 hover:scale-95 hover:text-gray-700 transition-all mx-2">Next
+                <div class="shadow-md rounded p-2 text-sm">{{nextPost.data.title}}</div>
+            </a>
+        {% endif %}
+    </div>
+    {%endmacro%}

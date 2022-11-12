@@ -1,0 +1,17 @@
+<div class="grid my-4">
+    <h2>Photos</h2>
+    <span class="text-gray-400 text-xs">Photos from this collection.</span>
+</div>
+<ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
+    {%- for post in collections[page.fileSlug] | hasTags('photo') | reverse -%}
+        <a href={{post.url}} class="w-60 text-md hover:scale-95 transition-all">
+            <div class="flex flex-col ">
+                <h1 class="font-bold text-xl">{{post.templateContent | safe}}</h1>
+                {% image post.data.image,
+                post.data.title %}
+                <div class="text-xs text-gray-600">{{post.date | date ("dddd, MMMM D, YYYY")}}</div>
+                <div class="">{{post.subtitle }}</div>
+            </div>
+        </a>
+    {%- endfor -%}
+</ol>
