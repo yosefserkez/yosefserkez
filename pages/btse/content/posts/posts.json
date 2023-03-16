@@ -1,4 +1,0 @@
-{
-  "permalink": "pct/logs/{{ page.date | date | slugify }}/index.html",
-  "tags": "post"
-}

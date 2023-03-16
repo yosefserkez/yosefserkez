@@ -1,49 +1,41 @@
----
-permalink: "/index.html"
-tags: home
-title: Yosef
-eleventyNavigation: 
-  key: index
-  title: Yosef Serkez
----
 {% extends "_includes/default.njk" %}
 
-{% block content %}
-  <p class="text-gray-400 text-sm" aria="About">
+{%block title%}Yosef Serkez{%endblock%}
 
-    <div class="mx-auto grid justify-center my-4 items-middle text-center" alt="Yosef Serkez Profile Photo." >
-      {# <div class="rounded-lg mx-auto w-24">
-        {% image './images/yosef-1.jpg',
-        title %}
-      </div> #}
-      <p>Hi I am Yosef</p>
-    </div>
-    <div class=" text-center">
+  {% block content %}
+    <p class="text-gray-400 text-sm" aria="About">
 
-      {# <h2 class="font-bold">Collections</h2> #}
-      <ul class=" flex mt-2 justify-center">
+      <div class="mx-auto grid justify-center my-4 items-middle text-center" alt="Yosef Serkez Profile Photo." >
+        <div class="rounded-lg mx-auto w-72 h-96  bg-contain saturate-80 bg-no-repeat bg-[url('/assets/photos/yosef-1.jpg')]"></div>
+      </div>
+      <div class=" text-center">
 
-        <a href="/template" class="p-2 rounded text-md mx-2 border-t ">
-          <div class="flex flex-col h-full hover:scale-105 transition-transform">
-            <div class="ftext-gray-800 tracking-widest">Template</div>
-          </div>
-        </a>
+        {# <h2 class="font-bold">Collections</h2> #}
+        <ul class=" grid grid-flow-col grid-cols-2 mt-2 justify-center">
 
-        <a href="/pct" class="p-2 rounded text-md mx-2 border-t ">
-          <div class="flex flex-col h-full hover:scale-105 transition-transform">
-            <div class="ftext-gray-800 tracking-widest">Pacific Crest Trail</div>
-            <img src="/assets/pct.svg" class="w-36 h-36 md:pt-4 m-auto" alt="Pacific Crest Trail center line."/>
-          </div>
-        </a>
+          <a href="/pct22" class="p-2 rounded text-md mx-2 border-t ">
+            <div class="flex flex-col h-full hover:scale-105 transition-transform">
+              <div class="ftext-gray-800 tracking-widest">Pacific Crest Trail</div>
+              <img src="/assets/pct.svg" class="w-36 h-36 md:pt-4 m-auto" alt="Pacific Crest Trail center line."/>
+            </div>
+          </a>
 
-        <a href="/btse" class="p-2 rounded text-md mx-2 border-t">
-          <div class="flex flex-col h-full hover:scale-105 transition-transform">
-            <div class="text-gray-800 tracking-widest">Before The Sun Explodes</div>
-            <div class="border border-orange-400  w-24 h-24 m-auto rounded-full"></div>
-          </div>
-        </a>
+          <a href="/btse" class="p-2 rounded text-md mx-2 border-t">
+            <div class="flex flex-col h-full hover:scale-105 transition-transform">
+              <div class="text-gray-800 tracking-widest">Before The Sun Explodes</div>
+              <div class="border border-orange-400  w-24 h-24 m-auto rounded-full"></div>
+            </div>
+          </a>
+        </ul>
 
-      </ul>
+        {# <h2 class="font-bold">FYI</h2>
+        <ul class="flex grid-flow-col grid-cols-2 md:grid-cols-4 mt-2 border-l">
+          <p class="">I have no idea what I’m doing. Please stop asking.</p>
+          <p class=""> Most of the time I to the thing because it sounds like an opportunity, to expand my horizons, challenge my beliefs, confront a fear, 
+          learn something new, build a friendship, share love, feel inspired, or leave a positive impact. 
+        </p>
+          <p class="">I can’t yet communicate with the future. I only know the past. It say’s having tried is not what I’ll regret.</p>
+        </ul> #}
 
-    </div>
-  {% endblock %}
+      </div>
+    {% endblock %}

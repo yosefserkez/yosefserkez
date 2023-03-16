@@ -1,5 +1,0 @@
-{
-  "permalink": "pct/photos/{{ title | slugify }}-{{date|date}}/index.html",
-  "tags": "photo",
-  "layout": "photo.njk"
-}

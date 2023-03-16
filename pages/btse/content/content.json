@@ -1,4 +1,9 @@
 {
+  "permalink": "btse/{{ title | slugify }}-{{date | date: 'YYYY-MM-DD' }}/index.html",
   "layout": "post.njk",
-  "tags": "btse"
+  "tags": "btse",
+  "eleventyNavigation": {
+    "key": "btse-post",
+    "parent": "btse"
+  }
 }

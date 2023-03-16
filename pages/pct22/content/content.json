@@ -1,0 +1,9 @@
+{
+  "permalink": "pct22/{{ page.date | date | slugify }}/index.html",
+  "layout": "post.njk",
+  "tags": "pct22",
+  "eleventyNavigation": {
+    "key": "Entry",
+    "parent": "pct22"
+  }
+}

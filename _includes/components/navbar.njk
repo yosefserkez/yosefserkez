@@ -1,15 +1,12 @@
-<nav class="flex w-full justify-between items-start border-b text-xl py-1 mb-1">
-    <div class="flex text-xl flex-col">
-        {# <a href="/" class="hover:underline hover:underline-offset-8">
+<nav class="flex w-full justify-between items-center border-b text-xl py-1 mb-1">
+    <div class="flex text-xl flex-col md:flex-row">
+        <a href="/" class="font-bold hover:underline hover:underline-offset-8">
         Yosef Serkez
-        </a> #}
-        {% set crumbs = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, {
-            includeSelf: true,
-            allowMissing: true
-        }) %}
+        </a>
+        {% set crumbs = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key, {allowMissing: true}) %}
         {% for crumb in crumbs %}
-            <a class="text-sm tracking-wide text-gray-500 font-light hover:text-gray-900 last-of-type:text-gray-900 last-of-type:font-bold last-of-type:pointer-events-none last-of-type:text-3xl" href="{{ crumb.url | url }}">{{ crumb.title }}
-            </a>
+            <span class="text-gray-900 font-extralight mx-2 hidden md:block">|</span>
+            <a class="text-gray-900 hover:underline underline-offset-8 font-light" href="{{ crumb.url | url }}">{{ crumb.title }}</a>
         {% endfor %}
     </div>
 
@@ -27,4 +24,6 @@
             <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/podcast.svg"/>
         </a>
     </div>
+    {% set navPages = collections.all | eleventyNavigation %}
+
 </nav>
