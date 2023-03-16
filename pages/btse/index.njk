@@ -10,7 +10,7 @@ eleventyNavigation:
 
 {% block content %}
   <p class="text-gray-400 text-sm" aria="About">
-      Can adventure teach us something about lifes biggest question? Brb, I'll go find out.
+      Can adventure teach us something about lifes biggest question?
     </p>
   <div class="sun-container mx-auto my-16">
     <div
@@ -69,10 +69,11 @@ eleventyNavigation:
     <div class="flex">
       <h2>Posts</h2>
       <span class="mx-2 text-gray-400 border-r"></span>
-      <span class="text-gray-400 font-light">{{collections.btse.length}}</span>
+      <span class="text-gray-400 font-light">0</span>
     </div>
     <ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
-      {%- for post in collections.btse | reverse -%}
+      <span class="italic font-mono opacity-30">🚧 Under construction 🚧</span>
+      {# {%- for post in collections.btse | reverse -%}
         <a href={{post.url}} class="p-2 rounded border w-60 text-md hover:border-black">
           <div class="flex flex-col ">
             <div class="text-xs text-gray-600">{{post.date | date ("dddd, MMMM D, YYYY")}}</div>
@@ -82,7 +83,7 @@ eleventyNavigation:
             <div class="">{{post.templateContent |  truncate() | safe }}</div>
           </div>
         </a>
-      {%- endfor -%}
+      {%- endfor -%} #}
     </ol>
   </div>
 

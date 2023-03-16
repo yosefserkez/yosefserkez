@@ -12,7 +12,7 @@ eleventyNavigation:
   <p class="text-gray-600 text-sm" aria="About">
         In May 2022 I embarked on a journey across America, by foot. For 4 months I walked 
         through the Sierra Nevada mountain range, 2000+ miles from Mexico to Canada. This walk opened my eyes, and heart to our magical world.
-        I have yearned for the same sense of life every day since. In many ways I see the experience as a capstone project to years of prior 
+        In many ways the experience was a capstone project to years of prior 
         efforts. Yet it's also the origin story to the life I live now. A life where I pursue a goal no matter it's percieved absurity. Maybe someday I'll 
         find a way to organize the experience and all it's nuanced lessons, but for now I'm content with the many mental impressions, and (almost) daily journal entries seen below.
     </p>
@@ -24,10 +24,17 @@ eleventyNavigation:
       <h2>Logs</h2>
       <span class="mx-2 text-gray-400 border-r"></span>
       <span class="text-gray-400 font-light">{{collections.pct22.length}}</span>
+      <span class="mx-2 text-gray-400 border-r"></span>
+      <div class="grid grid-flow-col gap-2 self-end">
+        <p>Sort by:</p>
+        <button onclick="reverseLogs(this)" class="underline underline-offset-2 hover:underline text-gray-700" data-sortby="new">New</button>
+        <button onclick="reverseLogs(this)" class="underline-offset-2 hover:underline  text-gray-700" data-sortby="old">Old</button>
+      </div>
+
     </div>
-    <ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
+    <ol id="log-list" class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
       {%- for post in collections.pct22 | reverse -%}
-        <a href={{post.url}} class="p-2 rounded border w-60 text-md hover:border-black">
+        <a href={{post.url}} data-date={{post.date.toISOString()}} class="p-2 rounded border w-60 text-md hover:border-black">
           <div class="flex flex-col ">
             <div class="text-xs text-gray-600">{{post.data.title }}</div>
             <div class="">{{post.templateContent |  truncate() | safe }}</div>
@@ -36,4 +43,37 @@ eleventyNavigation:
       {%- endfor -%}
     </ol>
   </div>
+  <script>
+    function reverseLogs(e, by) {
+      const sortby = e
+        .dataset
+        .sortby
+
+        document
+        .querySelector(
+          `[data-sortby=${sortby == 'new'
+          ? 'old'
+          : 'new'}]`)
+        .classList
+        .remove('underline')
+
+      e
+        .classList
+        .add('underline')
+
+      const dateList = document.getElementById('log-list');
+
+      const listItems = Array.from(dateList.children);
+
+      listItems.sort((a, b) => {
+        const dateA = new Date(a.dataset.date);
+        const dateB = new Date(b.dataset.date);
+        return sortby == 'old'
+          ? dateA - dateB
+          : dateB - dateA
+      });
+
+      listItems.forEach(item => dateList.appendChild(item));
+    }
+  </script>
 {% endblock %}
