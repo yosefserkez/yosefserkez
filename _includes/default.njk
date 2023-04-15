@@ -15,14 +15,17 @@
     {% block head %}{% endblock %}
     <script defer src="/js/alpine.js?v={% version %}"></script>
   </head>
-  <body class="p-2 w-full h-full">
-    {% include "_includes/components/navbar.njk" %}
+  <body class="min-h-screen flex flex-col">
+    <div class="flex-1 mx-8 my-5">
 
-    <div class="text-gray-800 tracking-widest">
-      {{title}}
+      {% include "_includes/components/navbar.njk" %}
+
+      <div class="text-gray-800 tracking-widest">
+        {{title}}
+      </div>
+      {% block content %}
+        {{ content | safe }}
+      {% endblock %}
     </div>
-    {% block content %}
-      {{ content | safe }}
-    {% endblock %}
   </body>
 </html>

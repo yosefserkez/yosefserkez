@@ -4,8 +4,8 @@
 {% set nextPost = collections.pct22 | getNextCollectionItem(page) %}
 
 {% block content %}
-    <div class="m-auto py-2">
-        <div class="markdown m-auto px-4 border-l-2 pr-8">
+    <div class="p-8 max-w-2xl mx-auto grid">
+        <div class="markdown">
             {{ content | safe }}
         </div>
         <div class="my-4 font-thin">

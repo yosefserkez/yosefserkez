@@ -5,8 +5,10 @@
   {% block content %}
     <p class="text-gray-400 text-sm" aria="About">
 
-      <div class="mx-auto grid my-4" alt="Yosef Serkez Profile Photo." >
-        <div class=" h-64   bg-contain saturate-50  bg-no-repeat bg-[url('/assets/photos/yosef-1.jpg')]"></div>
+      <div class="mx-auto grid md:grid-cols-2 gap-8 my-4" alt="Yosef Serkez Profile Photo." >
+        <img src="/assets/photos/yosef-1.jpg" class="w-full rounded overflow-hidden bg-contain bg-no-repeat bg-[url('/assets/photos/yosef-1.jpg')]">
+        {# <im class="h-64 rounded overflow-hidden bg-contain bg-no-repeat bg-[url('/assets/photos/yosef-1.jpg')]"></im> #}
+        <p class="text-left self-start">Yosef Serkez is </p>
       </div>
 
       <div class="my-5">
@@ -19,6 +21,13 @@
           </div>
 
           <ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2">
+            <a href="/tech" class="p-2 rounded border w-60 text-md hover:border-black">
+              <div class="flex flex-col h-full">
+                <div class="ftext-gray-800 tracking-widest">Technology</div>
+                <img src="/assets/icons/code.svg" class="w-32 h-32 md:pt-4 m-auto " alt="Pacific Crest Trail center line."/>
+              </div>
+            </a>
+
             <a href="/pct22" class="p-2 rounded border w-60 text-md hover:border-black">
               <div class="flex flex-col h-full">
                 <div class="ftext-gray-800 tracking-widest">Pacific Crest Trail</div>
@@ -58,10 +67,22 @@
           </ol>
         </div>
 
+        <div class="my-5">
+          <div class="flex">
+            <h2 class="font-bold">Videos</h2>
+            <span class="mx-2 text-gray-400 border-r"></span>
+            <span class="text-gray-400 font-light">1</span>
+          </div>
+          <ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
+            <iframe  class="w-60 h-full rounded" src="https://www.youtube.com/embed/F4PvHija8eE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+          </ol>
+        </div>
+
         {# Section #}
         <div class="my-5">
           <div class="flex">
-            <h2 class="font-bold">Spoken Words</h2>
+            <h2 class="font-bold">Other</h2>
             <span class="mx-2 text-gray-400 border-r"></span>
             <span class="text-gray-400 font-light">2</span>
           </div>
@@ -80,18 +101,6 @@
                 </div>
               </div>
             </a>
-          </ol>
-        </div>
-
-        <div class="my-5">
-          <div class="flex">
-            <h2 class="font-bold">Videos</h2>
-            <span class="mx-2 text-gray-400 border-r"></span>
-            <span class="text-gray-400 font-light">1</span>
-          </div>
-          <ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
-            <iframe  class="w-60 h-full rounded" src="https://www.youtube.com/embed/F4PvHija8eE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
           </ol>
         </div>
 

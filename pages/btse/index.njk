@@ -10,7 +10,7 @@ eleventyNavigation:
 
 {% block content %}
   <p class="text-gray-400 text-sm" aria="About">
-      Can adventure teach us something about lifes biggest question?
+    <span class="font-bold">Before The Sun Explodes</span> is a collection of thoughts, ideas, and musings. It's a place to explore the unknown, to ask questions, and to share what I've learned. It's a place to be vulnerable, to be honest, and to be real. It's a place to be me.
     </p>
   <div class="sun-container mx-auto my-16">
     <div
@@ -44,7 +44,7 @@ eleventyNavigation:
       <p>What is consciousness?</p>
     </div>
     <div class="sun-ray" style="animation-delay: -15s">
-      <p>What is my ego?</p>
+      <p>What is ego?</p>
     </div>
     <div class="sun-ray" style="animation-delay: -16.5s">
       <p>What is spirituality?</p>
@@ -69,21 +69,21 @@ eleventyNavigation:
     <div class="flex">
       <h2>Posts</h2>
       <span class="mx-2 text-gray-400 border-r"></span>
-      <span class="text-gray-400 font-light">0</span>
+      <span class="text-gray-400 font-light">{{collections.btse.length}}</span>
     </div>
     <ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
-      <span class="italic font-mono opacity-30">🚧 Under construction 🚧</span>
-      {# {%- for post in collections.btse | reverse -%}
+      {# <span class="italic font-mono opacity-30">🚧 Under construction 🚧</span> #}
+      {%- for post in collections.btse | reverse -%}
         <a href={{post.url}} class="p-2 rounded border w-60 text-md hover:border-black">
           <div class="flex flex-col ">
             <div class="text-xs text-gray-600">{{post.date | date ("dddd, MMMM D, YYYY")}}</div>
 
             <h1 class="font-bold text-xl">{{post.data.title}}</h1>
-            {{linkTags(post.data.links)}}
+            {# {{linkTags(post.data.links)}} #}
             <div class="">{{post.templateContent |  truncate() | safe }}</div>
           </div>
         </a>
-      {%- endfor -%} #}
+      {%- endfor -%}
     </ol>
   </div>
 
