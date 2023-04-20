@@ -1,0 +1,25 @@
+---
+permalink: "{{page.fileSlug}}/index.html"
+eleventyNavigation:
+  key: projects
+  title: My Projects
+---
+{% extends "_includes/default.njk" %}
+{% from 'components/linkTags.njk' import linkTags %}
+{%set title="My Projects"%}
+
+{% block content %}
+  <p class="text-gray-400 text-sm" aria="About">
+     A collection of the projects I've worked on over the years. Some are live in production, others used to be, while most never were.
+    </p>
+
+  <div class="">
+    <div class="flex">
+      <h2>Projects</h2>
+      <span class="mx-2 text-gray-400 border-r"></span>
+      <span class="text-gray-400 font-light">{{collections.project.length}}</span>
+    </div>
+    {% include "projects.njk" %}
+  </div>
+
+{% endblock %}

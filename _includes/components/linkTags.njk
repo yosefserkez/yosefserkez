@@ -20,6 +20,16 @@
                             <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/tiktok.svg"/>
                         </span>
                         {%endif%}
+                        {% if links.github %}
+                            <span class="text-sm rounded-lg bg-blue-100 px-2 mr-2 w-8 h-8 items-center">
+                                <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/github.svg"/>
+                            </span>
+                            {%endif%}
+                            {% if links.url %}
+                                <span class="text-sm rounded-lg bg-blue-100 px-2 mr-2 w-8 h-8 items-center">
+                                    <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/url.svg"/>
+                                </span>
+                                {%endif%}
 
-                    </div>
-                    {%endmacro%}
+                            </div>
+                            {%endmacro%}

@@ -8,7 +8,7 @@
       <div class="mx-auto grid md:grid-cols-2 gap-8 my-4" alt="Yosef Serkez Profile Photo." >
         <img src="/assets/photos/yosef-1.jpg" class="w-full rounded overflow-hidden bg-contain bg-no-repeat bg-[url('/assets/photos/yosef-1.jpg')]">
         {# <im class="h-64 rounded overflow-hidden bg-contain bg-no-repeat bg-[url('/assets/photos/yosef-1.jpg')]"></im> #}
-        <p class="text-left self-start">Yosef Serkez is </p>
+        <p class="text-left self-start"></p>
       </div>
 
       <div class="my-5">
@@ -21,12 +21,12 @@
           </div>
 
           <ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2">
-            <a href="/tech" class="p-2 rounded border w-60 text-md hover:border-black">
+            {# <a href="/tech" class="p-2 rounded border w-60 text-md hover:border-black">
               <div class="flex flex-col h-full">
                 <div class="ftext-gray-800 tracking-widest">Technology</div>
                 <img src="/assets/icons/code.svg" class="w-32 h-32 md:pt-4 m-auto " alt="Pacific Crest Trail center line."/>
               </div>
-            </a>
+            </a> #}
 
             <a href="/pct22" class="p-2 rounded border w-60 text-md hover:border-black">
               <div class="flex flex-col h-full">
@@ -49,22 +49,9 @@
           <div class="flex">
             <h2 class="font-bold">Projects</h2>
             <span class="mx-2 text-gray-400 border-r"></span>
-            <span class="text-gray-400 font-light">1</span>
+            <span class="text-gray-400 font-light">{{collections.project.length}}</span>
           </div>
-          <ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
-            <a href="https://4till2.com" class="p-2 rounded border w-60 text-md hover:border-black">
-              <div class="flex flex-col h-full">
-                <div class="text-gray-800 tracking-widest flex items-center">
-                  4till2.com
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4 ml-1 opacity-80">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"/>
-                  </svg>
-
-                </div>
-                <p class="text-gray-400 font-light">A custom-built site for live journaling my PCT thru-hike.</p>
-              </div>
-            </a>
-          </ol>
+          {% include 'projects.njk' %}
         </div>
 
         <div class="my-5">

@@ -1,0 +1,9 @@
+{
+  "permalink": "projects/{{ title | slugify }}/index.html",
+  "layout": "post.njk",
+  "tags": "project",
+  "eleventyNavigation": {
+    "key": "project",
+    "parent": "projects"
+  }
+}

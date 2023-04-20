@@ -1,0 +1,25 @@
+<ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
+    {# <span class="italic font-mono opacity-30">🚧 Under construction 🚧</span> #}
+    {%- for post in collections.project | reverse -%}
+        <div class="p-2 rounded border w-60 text-md hover:border-gray-300">
+            <div class="flex flex-col ">
+                <div class="text-xs text-gray-600">{{post.date | date ("YYYY")}}</div>
+                <h1 class="font-bold text-xl">{{post.data.title}}</h1>
+
+                <div class="flex">
+                    {%if post.data.url %}
+                        <a target="_blank" href={{post.data.url}} class="text-sm rounded-lg bg-gray-100 hover:bg-gray-200  px-2 mr-2 w-8 h-8 items-center">
+                            <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/link.svg"/>
+                        </a>
+                    {% endif %}
+                    {%if post.data.github %}
+                        <a target="_blank" href={{post.data.github}}  class="text-sm rounded-lg bg-gray-100 hover:bg-gray-200 px-2 mr-2 w-8 h-8 items-center">
+                            <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/github.svg"/>
+                        </a>
+                    {% endif %}
+                </div>
+                <div class="text-xs">{{post.data.description  }}</div>
+            </div>
+        </div>
+    {%- endfor -%}
+</ol>
