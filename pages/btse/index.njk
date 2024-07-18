@@ -50,7 +50,7 @@ eleventyNavigation:
       <p>What is spirituality?</p>
     </div>
     <div class="sun-ray" style="animation-delay: -18s">
-      <p>Why all the pain?</p>
+      <p>Why all the suffering?</p>
     </div>
     <div class="sun-ray" style="animation-delay: -19.5s">
       <p>Is the confusion natural?</p>
@@ -59,32 +59,67 @@ eleventyNavigation:
       <p>Is reality...real?</p>
     </div>
     <div class="sun-ray" style="animation-delay: -22.5s">
-      <p>...xxx...xxx</p>
+      <p>I feel so much love</p>
     </div>
     <div class="sun-ray" style="animation-delay: -24s">
       <p>Remember that time.</p>
     </div>
   </div>
-  <div class="">
+<div class="">
     <div class="flex">
       <h2>Posts</h2>
       <span class="mx-2 text-gray-400 border-r"></span>
       <span class="text-gray-400 font-light">{{collections.btse.length}}</span>
-    </div>
-    <ol class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
-      {# <span class="italic font-mono opacity-30">🚧 Under construction 🚧</span> #}
-      {%- for post in collections.btse | reverse -%}
-        <a href={{post.url}} class="p-2 rounded border w-60 text-md hover:border-black">
-          <div class="flex flex-col ">
-            <div class="text-xs text-gray-600">{{post.date | date ("dddd, MMMM D, YYYY")}}</div>
+      <span class="mx-2 text-gray-400 border-r"></span>
+      <div class="grid grid-flow-col gap-2 self-end">
+        <p>Sort by:</p>
+        <button onclick="reverseLogs(this)" class="underline underline-offset-2 hover:underline text-gray-700" data-sortby="new">New</button>
+        <button onclick="reverseLogs(this)" class="underline-offset-2 hover:underline  text-gray-700" data-sortby="old">Old</button>
+      </div>
 
-            <h1 class="font-bold text-xl">{{post.data.title}}</h1>
-            {# {{linkTags(post.data.links)}} #}
-            <div class="">{{post.templateContent |  truncate() | safe }}</div>
+    </div>
+    <ol id="log-list" class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
+      {%- for post in collections.btse | reverse -%}
+        <a href={{post.url}} data-date={{post.date.toISOString()}} class="p-2 rounded border w-60 text-md hover:border-black">
+          <div class="flex flex-col ">
+            <div class="text-xs text-gray-600 font-bold">{{post.data.title }}</div>
           </div>
         </a>
       {%- endfor -%}
     </ol>
   </div>
+  <script>
+    function reverseLogs(e, by) {
+      const sortby = e
+        .dataset
+        .sortby
+
+        document
+        .querySelector(
+          `[data-sortby=${sortby == 'new'
+          ? 'old'
+          : 'new'}]`)
+        .classList
+        .remove('underline')
+
+      e
+        .classList
+        .add('underline')
+
+      const dateList = document.getElementById('log-list');
+
+      const listItems = Array.from(dateList.children);
+
+      listItems.sort((a, b) => {
+        const dateA = new Date(a.dataset.date);
+        const dateB = new Date(b.dataset.date);
+        return sortby == 'old'
+          ? dateA - dateB
+          : dateB - dateA
+      });
+
+      listItems.forEach(item => dateList.appendChild(item));
+    }
+  </script>
 
 {% endblock %}
