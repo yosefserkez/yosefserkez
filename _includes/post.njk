@@ -1,7 +1,8 @@
 {% extends "_includes/default.njk" %}
 
-{% set previousPost = collections.pct22 | getPreviousCollectionItem(page) %}
-{% set nextPost = collections.pct22 | getNextCollectionItem(page) %}
+{% set collectionName = page.collection or 'pct22' %}
+{% set previousPost = collections[collectionName] | getPreviousCollectionItem(page) %}
+{% set nextPost = collections[collectionName] | getNextCollectionItem(page) %}
 
 {% block content %}
     <div class="max-w-2xl mx-auto grid">

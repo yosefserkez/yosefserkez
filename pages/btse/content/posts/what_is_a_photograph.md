@@ -4,10 +4,8 @@ publish: true
 title: "What is a Photograph?"
 ---
 
-<div class="mx-auto grid md:grid-cols-1 gap-1 my-4" >
-    <img src="../../../assets/photos/day_in_the_life.jpg" class="w-full overflow-hidden bg-contain bg-no-repeat bg-[url('../../../assets/photos/day_in_the_life.jpg')]">
-    <p class="text-center text-sm text-gray-500">Photo by Emily Shefferman</p>
-</div>
+{% post-img "../../../assets/photos/day_in_the_life.jpg", "Emily Shefferman", "Photo of street with people; taken by Emily Shefferman" %}
+
 
 A photograph is a story. A story captured in light. A scene frozen in time built of characters (alive or not) composed
 in relation to one another. Relationships sometimes physical through space, other times inferred. A photographer
