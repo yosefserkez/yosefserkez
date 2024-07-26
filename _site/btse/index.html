@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><title>Before The Sun Explodes</title><meta charset="UTF-8"><meta http-equiv="x-ua-compatible" content="ie=edge"><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,viewport-fit=cover"><link rel="stylesheet" href="/style.css?v=1721349668613"><script defer="defer" src="/js/alpine.js?v=1721349668613"></script></head><body class="min-h-screen flex flex-col"><div class="flex-1 mx-8 my-5"><nav class="flex w-full justify-between items-center border-b text-xl py-1 mb-1"><div class="flex text-xl flex-col md:flex-row"><a href="/" class="font-bold hover:underline hover:underline-offset-8">Yosef Serkez</a></div><div class="flex"><p class="text-sm">yosefserkez@gmail</p></div></nav><div class="text-gray-800 tracking-widest">Before The Sun Explodes</div><p class="text-gray-400 text-sm" aria="About"><span class="font-bold">Before The Sun Explodes</span> is a collection of thoughts, ideas, and musings. It's a place to explore the unknown, to ask questions, and to share what I've learned. It's a place to be vulnerable, to be honest, and to be real. It's a place to be me.</p><div class="sun-container mx-auto my-16"><div class="border-2 border-orange-400 w-24 h-24 m-auto rounded-full shadow-md shadow-orange-200"></div><div class="sun-ray" style="animation-delay: -1.5s"><p>Where did I come from?</p></div><div class="sun-ray" style="animation-delay: -3s"><p>Who am I?</p></div><div class="sun-ray" style="animation-delay: -4.5s"><p>Why am I here?</p></div><div class="sun-ray" style="animation-delay: -6s"><p>How should I live?</p></div><div class="sun-ray" style="animation-delay: -7.5s"><p>Where am I going?</p></div><div class="sun-ray" style="animation-delay: -9s"><p>What is love?</p></div><div class="sun-ray" style="animation-delay: -10.5s"><p>God?</p></div><div class="sun-ray" style="animation-delay: -12s"><p>What is my purpose?</p></div><div class="sun-ray" style="animation-delay: -13.5s"><p>What is consciousness?</p></div><div class="sun-ray" style="animation-delay: -15s"><p>What is ego?</p></div><div class="sun-ray" style="animation-delay: -16.5s"><p>What is spirituality?</p></div><div class="sun-ray" style="animation-delay: -18s"><p>Why all the suffering?</p></div><div class="sun-ray" style="animation-delay: -19.5s"><p>Is the confusion natural?</p></div><div class="sun-ray" style="animation-delay: -21s"><p>Is reality...real?</p></div><div class="sun-ray" style="animation-delay: -22.5s"><p>I feel so much love</p></div><div class="sun-ray" style="animation-delay: -24s"><p>Remember that time.</p></div></div><div class=""><div class="flex"><h2>Posts</h2><span class="mx-2 text-gray-400 border-r"></span> <span class="text-gray-400 font-light">2</span> <span class="mx-2 text-gray-400 border-r"></span><div class="grid grid-flow-col gap-2 self-end"><p>Sort by:</p><button onclick="reverseLogs(this)" class="underline underline-offset-2 hover:underline text-gray-700" data-sortby="new">New</button> <button onclick="reverseLogs(this)" class="underline-offset-2 hover:underline text-gray-700" data-sortby="old">Old</button></div></div><ol id="log-list" class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2"><a href="/btse/what-is-a-photograph-2024-07-18/" data-date="2024-07-18T09:12:05.000Z" class="p-2 rounded border w-60 text-md hover:border-black"><div class="flex flex-col"><div class="text-xs text-gray-600 font-bold">What is a Photograph?</div></div></a><a href="/btse/three-years-of-exploration-part-1-2022-04-30/" data-date="2022-04-30T09:12:05.000Z" class="p-2 rounded border w-60 text-md hover:border-black"><div class="flex flex-col"><div class="text-xs text-gray-600 font-bold">Three Years of Exploration: Part 1</div></div></a></ol></div><script>function reverseLogs(e, by) {
+      const sortby = e
+        .dataset
+        .sortby
+
+        document
+        .querySelector(
+          `[data-sortby=${sortby == 'new'
+          ? 'old'
+          : 'new'}]`)
+        .classList
+        .remove('underline')
+
+      e
+        .classList
+        .add('underline')
+
+      const dateList = document.getElementById('log-list');
+
+      const listItems = Array.from(dateList.children);
+
+      listItems.sort((a, b) => {
+        const dateA = new Date(a.dataset.date);
+        const dateB = new Date(b.dataset.date);
+        return sortby == 'old'
+          ? dateA - dateB
+          : dateB - dateA
+      });
+
+      listItems.forEach(item => dateList.appendChild(item));
+    }</script></div></body></html>
