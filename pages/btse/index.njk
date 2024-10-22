@@ -3,19 +3,25 @@ permalink: "{{page.fileSlug}}/index.html"
 eleventyNavigation:
   key: btse
   title: Before The Sun Explodes
+aGlassOfAirPosts:
+  - "circumnavigating-marthas-vineyard"
+  - "what-is-a-photograph"
+  - "how-to-remember-what-you-read-a-summarization"
+  - "a-lesson-in-reflection"
+  - "my-self-discovery-of-writing"
 ---
+
 {% extends "_includes/default.njk" %}
 {% from 'components/linkTags.njk' import linkTags %}
-{%set title="Before The Sun Explodes"%}
-
+{% set title="Before The Sun Explodes" %}
 {% block content %}
   <p class="text-gray-400 text-sm" aria="About">
-    <span class="font-bold">Before The Sun Explodes</span> is a collection of thoughts, ideas, and musings. It's a place to explore the unknown, to ask questions, and to share what I've learned. It's a place to be vulnerable, to be honest, and to be real. It's a place to be me.
-    </p>
+    <span class="font-bold">Before The Sun Explodes</span>
+    is a collection of thoughts, ideas, and musings. It's a place to explore the unknown, to ask questions, and to share
+    what I've learned. It's a place to be vulnerable, to be honest, and to be real. It's a place to be me.
+  </p>
   <div class="sun-container mx-auto my-16">
-    <div
-        class="border-2 border-orange-400 w-24 h-24 m-auto rounded-full shadow-md shadow-orange-200"
-      ></div>
+    <div class="border-2 border-orange-400 w-24 h-24 m-auto rounded-full shadow-md shadow-orange-200"></div>
     <div class="sun-ray" style="animation-delay: -1.5s">
       <p>Where did I come from?</p>
     </div>
@@ -65,61 +71,71 @@ eleventyNavigation:
       <p>Remember that time.</p>
     </div>
   </div>
-<div class="">
-    <div class="flex">
-      <h2>Posts</h2>
-      <span class="mx-2 text-gray-400 border-r"></span>
-      <span class="text-gray-400 font-light">{{collections.btse.length}}</span>
-      <span class="mx-2 text-gray-400 border-r"></span>
-      <div class="grid grid-flow-col gap-2 self-end">
-        <p>Sort by:</p>
-        <button onclick="reverseLogs(this)" class="underline underline-offset-2 hover:underline text-gray-700" data-sortby="new">New</button>
-        <button onclick="reverseLogs(this)" class="underline-offset-2 hover:underline  text-gray-700" data-sortby="old">Old</button>
+  {% if collections.btse.length > 0 %}
+    <div class="my-4 border-b pb-4">
+      <div class="flex">
+        <h2>Posts</h2>
+        <span class="text-gray-400 font-light mx-2">{{ collections.btse.length }}</span>
+        <div class="grid grid-flow-col gap-2 self-end">
+          <p>Sort by:</p>
+          <button
+            onclick="reverseLogs(this)"
+            class="underline underline-offset-2 hover:underline text-gray-700"
+            data-sortby="new">New</button>
+          <button onclick="reverseLogs(this)" class="underline-offset-2 hover:underline  text-gray-700" data-sortby="old">Old</button>
+        </div>
       </div>
-
+      <ol id="log-list" class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll mt-2 ">
+        {%- for post in collections.btse | reverse -%}
+          <a href={{ post.url }} data-date={{ post.date.toISOString() }} class="p-2 rounded border w-60 text-md hover:border-black">
+            <div class="flex flex-col ">
+              <div class="text-xs text-gray-600 font-bold">{{ post.data.title }}</div>
+            </div>
+          </a>
+        {%- endfor -%}
+      </ol>
     </div>
-    <ol id="log-list" class="grid gap-x-2 grid-flow-col auto-cols-max	overflow-scroll border-l-2 pl-2 mt-2 ">
-      {%- for post in collections.btse | reverse -%}
-        <a href={{post.url}} data-date={{post.date.toISOString()}} class="p-2 rounded border w-60 text-md hover:border-black">
-          <div class="flex flex-col ">
-            <div class="text-xs text-gray-600 font-bold">{{post.data.title }}</div>
-          </div>
-        </a>
-      {%- endfor -%}
-    </ol>
-  </div>
+  {% endif %}
+  {% if aGlassOfAirPosts.length > 0 %}
+    <div class="my-4 border-b pb-4">
+      <div class="flex">
+        <h2>A Glass Of Air</h2>
+        <span class="text-gray-400 font-light ml-2">{{ aGlassOfAirPosts.length }}</span>
+      </div>
+      <ol id="log-list" class="flex flex-wrap gap-x-2 grid-flow-col auto-cols-max	overflow-scroll mt-2 ">
+        {%- for post in aGlassOfAirPosts -%}
+          {% set substack_url = post %}
+          {% include "components/substack.njk" %}
+        {%- endfor -%}
+      </ol>
+    </div>
+  {% endif %}
   <script>
     function reverseLogs(e, by) {
       const sortby = e
         .dataset
         .sortby
-
         document
-        .querySelector(
-          `[data-sortby=${sortby == 'new'
-          ? 'old'
-          : 'new'}]`)
+        .querySelector (`[data-sortby=${
+          sortby == 'new'
+            ? 'old'
+            : 'new'
+          }]`)
         .classList
         .remove('underline')
-
       e
-        .classList
-        .add('underline')
-
-      const dateList = document.getElementById('log-list');
-
-      const listItems = Array.from(dateList.children);
-
-      listItems.sort((a, b) => {
-        const dateA = new Date(a.dataset.date);
-        const dateB = new Date(b.dataset.date);
-        return sortby == 'old'
-          ? dateA - dateB
-          : dateB - dateA
-      });
-
-      listItems.forEach(item => dateList.appendChild(item));
-    }
+      .classList
+      .add('underline')
+    const dateList = document.getElementById('log-list');
+    const listItems = Array.from(dateList.children);
+    listItems.sort((a, b) => {
+      const dateA = new Date(a.dataset.date);
+      const dateB = new Date(b.dataset.date);
+      return sortby == 'old'
+        ? dateA - dateB
+        : dateB - dateA
+    });
+    listItems.forEach(item => dateList.appendChild(item));
+  }
   </script>
-
 {% endblock %}

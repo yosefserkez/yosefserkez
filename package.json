@@ -5,9 +5,9 @@
     "deploy": "rm -rf _site && npm run build && surge _site && git add . && git commit -m 'Deploy' && git push"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy": "^3.0.0",
     "@11ty/eleventy-navigation": "^0.3.5",
-    "@11ty/eleventy-plugin-rss": "^1.2.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.2",
     "alpinejs": "^3.7.0",
     "dayjs": "^1.11.6",
     "html-minifier": "^4.0.0",

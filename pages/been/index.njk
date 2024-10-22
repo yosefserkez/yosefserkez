@@ -1,0 +1,293 @@
+---
+permalink: "{{page.fileSlug}}/index.html"
+eleventyNavigation:
+  key: been
+  title: Places I've Been
+places:
+  united_states,_states:
+    Alabama: true
+    Alaska: false
+    Arizona: true
+    Arkansas: true
+    California: lived
+    Colorado: lived
+    Connecticut: true
+    Delaware: true
+    Florida: lived
+    Georgia: true
+    Hawaii: true
+    Idaho: true
+    Illinois: true
+    Indiana: true
+    Iowa: true
+    Kansas: true
+    Kentucky: false
+    Louisiana: false
+    Maine: true
+    Maryland: true
+    Massachusetts: true
+    Michigan: false
+    Minnesota: false
+    Mississippi: false
+    Missouri: false
+    Montana: false
+    Nebraska: true
+    Nevada: true
+    "New Hampshire": true
+    "New Jersey": home
+    "New Mexico": true
+    "New York": lived
+    "North Carolina": true
+    "North Dakota": false
+    Ohio: true
+    Oklahoma: false
+    Oregon: true
+    Pennsylvania: true
+    "Rhode Island": true
+    "South Carolina": true
+    "South Dakota": false
+    Tennessee: true
+    Texas: true
+    Utah: true
+    Vermont: true
+    Virginia: true
+    Washington: lived
+    "West Virginia": true
+    Wisconsin: false
+    Wyoming: true
+  north_america:
+    "Antigua and Barbuda": false
+    Bahamas: false
+    Barbados: false
+    Belize: false
+    Canada: true
+    "Costa Rica": false
+    Cuba: false
+    Dominica: false
+    "Dominican Republic": false
+    "El Salvador": false
+    Grenada: false
+    Guatemala: false
+    Haiti: false
+    Honduras: false
+    Jamaica: false
+    Mexico: true
+    Nicaragua: false
+    Panama: false
+    "Saint Kitts and Nevis": false
+    "Saint Lucia": false
+    "Saint Vincent and the Grenadines": false
+    "Trinidad and Tobago": false
+    "United States": home
+  europe:
+    Albania: false
+    Andorra: false
+    Austria: true
+    Belarus: true
+    Belgium: false
+    "Bosnia and Herzegovina": false
+    Bulgaria: false
+    Croatia: true
+    "Czech Republic": false
+    Denmark: false
+    Estonia: false
+    Finland: false
+    France: true
+    Germany: true
+    Greece: true
+    Hungary: false
+    Iceland: false
+    Ireland: true
+    Italy: true
+    Kosovo: false
+    Latvia: false
+    Liechtenstein: false
+    Lithuania: true
+    Luxembourg: false
+    Malta: false
+    Moldova: false
+    Monaco: false
+    Montenegro: false
+    Netherlands: false
+    "North Macedonia": false
+    Norway: false
+    Poland: true
+    Portugal: false
+    Romania: false
+    Russia: false
+    "San Marino": false
+    Serbia: false
+    Slovakia: false
+    Slovenia: true
+    Spain: true
+    Sweden: false
+    Switzerland: false
+    Ukraine: false
+    "United Kingdom": false
+    "Vatican City": false
+  asia:
+    Afghanistan: false
+    Armenia: false
+    Azerbaijan: false
+    Bahrain: false
+    Bangladesh: false
+    Bhutan: false
+    Brunei: false
+    Cambodia: false
+    China: false
+    Cyprus: false
+    Georgia: false
+    India: false
+    Indonesia: false
+    Iran: false
+    Iraq: false
+    Israel: lived
+    Japan: true
+    Jordan: false
+    Kazakhstan: false
+    Kuwait: false
+    Kyrgyzstan: false
+    Laos: false
+    Lebanon: false
+    Malaysia: false
+    Maldives: false
+    Mongolia: false
+    "Myanmar (Burma)": false
+    Nepal: false
+    "North Korea": false
+    Oman: false
+    Pakistan: false
+    Palestine: false
+    Philippines: false
+    Qatar: false
+    "Saudi Arabia": false
+    Singapore: false
+    "South Korea": false
+    "Sri Lanka": false
+    Syria: false
+    Taiwan: false
+    Tajikistan: false
+    Thailand: false
+    "Timor-Leste (East Timor)": false
+    Turkey: false
+    Turkmenistan: false
+    "United Arab Emirates": false
+    Uzbekistan: false
+    Vietnam: false
+    Yemen: false
+  south_america:
+    Argentina: false
+    Bolivia: false
+    Brazil: false
+    Chile: false
+    Colombia: false
+    Ecuador: false
+    Guyana: false
+    Paraguay: false
+    Peru: false
+    Suriname: false
+    Uruguay: false
+    Venezuela: false
+  africa:
+    Algeria: false
+    Angola: false
+    Benin: false
+    Botswana: false
+    "Burkina Faso": false
+    Burundi: false
+    Cameroon: false
+    "Cape Verde": false
+    "Central African Republic": false
+    Chad: false
+    Comoros: false
+    Congo: false
+    "Democratic Republic of the Congo": false
+    Djibouti: false
+    Egypt: false
+    "Equatorial Guinea": false
+    Eritrea: false
+    Ethiopia: false
+    Gabon: false
+    Gambia: false
+    Ghana: false
+    Guinea: false
+    Guinea-Bissau: false
+    "Ivory Coast": false
+    Kenya: false
+    Lesotho: false
+    Liberia: false
+    Libya: false
+    Madagascar: false
+    Malawi: false
+    Mali: false
+    Mauritania: false
+    Mauritius: false
+    Morocco: false
+    Mozambique: false
+    Namibia: false
+    Niger: false
+    Nigeria: false
+    Rwanda: false
+    "Sao Tome and Principe": false
+    Senegal: false
+    Seychelles: false
+    "Sierra Leone": false
+    Somalia: false
+    "South Africa": false
+    "South Sudan": false
+    Sudan: false
+    Swaziland: false
+    Tanzania: false
+    Togo: false
+    Tunisia: false
+    Uganda: false
+    Zambia: false
+    Zimbabwe: false 
+  oceania:
+    Australia: false
+    Fiji: false
+    Kiribati: false
+    "Marshall Islands": false
+    Micronesia: false
+    Nauru: false
+    "New Zealand": false
+    Palau: false
+    "Papua New Guinea": false
+    Samoa: false
+    "Solomon Islands": false
+    Tonga: false
+    Tuvalu: false
+    Vanuatu: false
+---
+
+{% extends "_includes/default.njk" %}
+{% from 'components/linkTags.njk' import linkTags %}
+{% set title="Oh the places I've been" %}
+{% block content %}
+  <p class="text-gray-400 text-sm" aria="About">
+    🏡 I live there now. 🏠 I lived there for a while. ✅ I've visited.
+  </p>
+  <div class="mx-auto my-4">
+    {% for label, place in places %}
+      {% set visited_count = 0 %}
+      {% for name, visited in place %}
+        {% if visited %}
+          {% set visited_count = visited_count + 1 %}
+        {% endif %}
+      {% endfor %}
+      {% set total_count = place | length %}
+      <h2 class="font-bold my-3 border-b border-gray-200 pb-2">
+        {{ label | replace("_", " ") | title }}
+        <span class="text-gray-400 font-normal">({{ visited_count }} / {{ total_count }})</span>
+      </h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+        {% for name, visited in place %}
+          {% set emoji = '🏡' if visited == 'home' else ('🏠' if visited == 'lived' else ('✅' if visited else '')) %}
+          <div class="flex flex-col">
+            <h3 class="{% if visited %}text-black before:content-['{{ emoji }}'] before:mr-2{% else %}text-gray-200{% endif %}">{{ name }}</h3>
+          </div>
+        {% endfor %}
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}
