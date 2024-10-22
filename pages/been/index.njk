@@ -267,7 +267,10 @@ places:
   <p class="text-gray-400 text-sm" aria="About">
     🏡 I live there now. 🏠 I lived there for a while. ✅ I've visited.
   </p>
-  <div class="mx-auto my-4">
+  <p class="text-gray-400 text-sm mt-2" aria="About">
+    Try it for yourself! Check off the places you've been and see the counts update.
+  </p>
+  <form id="placesForm" class="mx-auto my-4">
     {% for label, place in places %}
       {% set visited_count = 0 %}
       {% for name, visited in place %}
@@ -278,16 +281,57 @@ places:
       {% set total_count = place | length %}
       <h2 class="font-bold my-3 border-b border-gray-200 pb-2">
         {{ label | replace("_", " ") | title }}
-        <span class="text-gray-400 font-normal">({{ visited_count }} / {{ total_count }})</span>
+        <span class="text-gray-400 font-normal">(<span id="{{ label }}_count">{{ visited_count }}</span>
+          / {{ total_count }})</span>
       </h2>
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {% for name, visited in place %}
-          {% set emoji = '🏡' if visited == 'home' else ('🏠' if visited == 'lived' else ('✅' if visited else '')) %}
-          <div class="flex flex-col">
-            <h3 class="{% if visited %}text-black before:content-['{{ emoji }}'] before:mr-2{% else %}text-gray-200{% endif %}">{{ name }}</h3>
-          </div>
-        {% endfor %}
-      </div>
-    {% endfor %}
-  </div>
-{% endblock %}
+          <div class="flex items-center">
+            <input type="checkbox" id="{{ label }}_{{ name | slug }}" name="{{ label }}_{{ name | slug }}" {% if visited %} checked {% endif %} data-label="{{ label }}" class="mr-2 place-checkbox">
+              <label for="{{ label }}_{{ name | slug }}" class="{% if visited %}text-black{% else %}text-gray-200{% endif %}">
+                {{ name }}
+                <span class="place-emoji ml-1">
+                  {% if visited == 'home' %}🏡 {% elif visited == 'lived' %}🏠 {% elif visited %}✅
+                  {% endif %}
+                </span>
+              </label>
+            </div>
+          {% endfor %}
+        </div>
+      {% endfor %}
+    </form>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('placesForm');
+        const checkboxes = form.querySelectorAll('.place-checkbox');
+        checkboxes.forEach(checkbox => {
+          checkbox.addEventListener('change', function () {
+            const label = this.dataset.label;
+            const countElement = document.getElementById (`${label}_count`);
+            const currentCount = parseInt(countElement.textContent);
+            if (this.checked) {
+              countElement.textContent = currentCount + 1;
+            } else {
+              countElement.textContent = currentCount - 1;
+            }
+          });
+        });
+      });
+    </script>
+    <style>
+      .place-checkbox:checked + label {
+        color: black;
+        opacity: 1;
+      }
+      .place-checkbox:not(:checked) + label {
+        color: gray;
+        opacity: 0.5;
+      }
+      .place-checkbox:checked + label .place-emoji {
+        opacity: 1;
+      }
+      .place-checkbox:not(:checked) + label .place-emoji {
+        opacity: 0.5;
+      }
+    </style>
+  {% endblock %}
