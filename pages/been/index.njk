@@ -287,12 +287,17 @@ places:
       <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
         {% for name, visited in place %}
           <div class="flex items-center">
-            <input type="checkbox" id="{{ label }}_{{ name | slug }}" name="{{ label }}_{{ name | slug }}" {% if visited %} checked {% endif %} data-label="{{ label }}" class="mr-2 place-checkbox">
-              <label for="{{ label }}_{{ name | slug }}" class="{% if visited %}text-black{% else %}text-gray-200{% endif %}">
-                {{ name }}
-                <span class="place-emoji ml-1">
-                  {% if visited == 'home' %}🏡 {% elif visited == 'lived' %}🏠 {% elif visited %}✅
-                  {% endif %}
+            <input type="checkbox" id="{{ label }}_{{ name | slug }}" name="{{ label }}_{{ name | slug }}" {% if visited %} checked {% endif %} data-label="{{ label }}" class="hidden place-checkbox">
+              <label for="{{ label }}_{{ name | slug }}" class="flex items-center cursor-pointer">
+                <span class="checkbox-custom mr-2 inline-block w-4 h-4 border border-gray-300 rounded-sm">
+                  {% if visited %}✅{% endif %}
+                </span>
+                <span>
+                  {{ name }}
+                  <span class="place-emoji ml-1">
+                    {% if visited == 'home' %}🏡 {% elif visited == 'lived' %}🏠
+                    {% endif %}
+                  </span>
                 </span>
               </label>
             </div>
@@ -309,29 +314,48 @@ places:
             const label = this.dataset.label;
             const countElement = document.getElementById (`${label}_count`);
             const currentCount = parseInt(countElement.textContent);
+            const customCheckbox = this.nextElementSibling.querySelector('.checkbox-custom');
+            const textSpan = this.nextElementSibling.querySelector('span:not(.checkbox-custom)');
             if (this.checked) {
               countElement.textContent = currentCount + 1;
+              customCheckbox.textContent = '✅';
             } else {
               countElement.textContent = currentCount - 1;
+              customCheckbox.textContent = '';
             }
           });
         });
       });
     </script>
     <style>
+      .checkbox-custom {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1rem;
+        height: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.25rem;
+        background-color: white;
+        transition: all 0.2s;
+      }
+      .place-checkbox:checked + label .checkbox-custom {
+        background-color: #4CAF50;
+        border-color: #4CAF50;
+      }
       .place-checkbox:checked + label {
         color: black;
         opacity: 1;
       }
       .place-checkbox:not(:checked) + label {
         color: gray;
-        opacity: 0.5;
+        opacity: 0.6;
       }
       .place-checkbox:checked + label .place-emoji {
         opacity: 1;
       }
       .place-checkbox:not(:checked) + label .place-emoji {
-        opacity: 0.5;
+        opacity: 0.6;
       }
     </style>
   {% endblock %}
