@@ -9,19 +9,34 @@
             <a class="text-gray-900 hover:underline underline-offset-8 font-light" href="{{ crumb.url | url }}">{{ crumb.title }}</a>
         {% endfor %}
     </div>
-    <div class="flex">{# <p class="text-sm">yosefserkez@gmail</p> #}
+    <div class="flex">
+        <p class="text-xs text-gray-500 flex flex-col">
+            <span class="flex justify-between">
+                Github
+                <a href="https://github.com/yosefserkez" class="font-bold underline" target="_blank">yosefserkez</a>
+            </span>
+            <span class="flex justify-between">
+                X
+                <a href="https://x.com/yosefserkez" class="font-bold underline" target="_blank">@yosefserkez</a>
+            </span>
+            <span class="flex justify-between gap-2">
+                LinkedIn
+                <a href="https://www.linkedin.com/in/yosefserkez/" class="font-bold underline" target="_blank">yosefserkez</a>
+            </span>
+        </p>
+        {# <p class="text-sm">yosefserkez@gmail</p> #}
         {# <a href="https://tiktok.com/yosefserkez" class="text-sm rounded-lg bg-blue-100 hover:bg-blue-300 px-2 ml-2 w-8 h-8 items-center">
-                    <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/tiktok.svg"/>
-                </a>
-                <a href="https://youtube.com/yosefserkez" class="text-sm rounded-lg bg-red-100 hover:bg-red-300 px-2 ml-2 w-8 h-8 items-center">
-                    <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/youtube.svg"/>
-                </a>
-                <a href="https://instagram.com/yosefserkez" class="text-sm rounded-lg bg-purple-100 hover:bg-purple-300 px-2 ml-2 w-8 h-8 items-center">
-                    <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/instagram.svg"/>
-                </a>
-                <a href="https://podcast.com/yosefserkez" class="text-sm rounded-lg bg-green-100 hover:bg-green-300 px-2 ml-2 w-8 h-8 items-center">
-                    <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/podcast.svg"/>
-                </a> #}
+                                                                        <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/tiktok.svg"/>
+                                                                    </a>
+                                                                    <a href="https://youtube.com/yosefserkez" class="text-sm rounded-lg bg-red-100 hover:bg-red-300 px-2 ml-2 w-8 h-8 items-center">
+                                                                        <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/youtube.svg"/>
+                                                                    </a>
+                                                                    <a href="https://instagram.com/yosefserkez" class="text-sm rounded-lg bg-purple-100 hover:bg-purple-300 px-2 ml-2 w-8 h-8 items-center">
+                                                                        <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/instagram.svg"/>
+                                                                    </a>
+                                                                    <a href="https://podcast.com/yosefserkez" class="text-sm rounded-lg bg-green-100 hover:bg-green-300 px-2 ml-2 w-8 h-8 items-center">
+                                                                        <img class="w-full h-full m-auto" src="{{ relative_prefix }}/assets/icons/podcast.svg"/>
+                                                                    </a> #}
     </div>
     {% set navPages = collections.all | eleventyNavigation %}
 </nav>
