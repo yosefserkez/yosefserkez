@@ -2,7 +2,7 @@
   "scripts": {
     "start": "eleventy --serve & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style.css --watch",
     "build": "ELEVENTY_PRODUCTION=true eleventy && NODE_ENV=production npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style.css --minify",
-    "deploy": "rm -rf _site && npm run build && surge _site && git add . && git commit -m 'Deploy' && git push"
+    "deploy": "rm -rf _site && npm run build && git add . && git commit -m 'Deploy' && git push"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",
