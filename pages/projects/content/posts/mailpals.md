@@ -6,5 +6,4 @@ description: "Open Source private group newsletters for friends, families & team
 url: https://mailpals.net
 github: https://github.com/4till2/mailpals
 logo: https://mailpals.net/assets/mailpals_logo-5e44318a.png
-priority: 2
 ---
